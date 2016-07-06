@@ -18,8 +18,6 @@ import java.util.List;
 @RestController
 public class TabController {
 
-
-
     // ------------------------
     // PUBLIC METHODS
     // ------------------------

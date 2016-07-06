@@ -55,6 +55,15 @@ public class Item {
     @NotNull
     private BigInteger sku;
 
+    @NotNull
+    private Double retailstick;
+
+    @NotNull
+    private Double retailbox;
+
+    @NotNull
+    private int sticksperbox;
+
 
 
 
@@ -69,7 +78,7 @@ public class Item {
     }
 
 
-    public Item(String name, Double coststick, int inventorylevel, Double length, int ringgauge, int strength, int brandid, BigInteger sku) {
+    public Item(String name, Double coststick, int inventorylevel, Double length, int ringgauge, int strength, int brandid, BigInteger sku, Double retailstick, Double retailbox, int sticksperbox) {
         this.name = name;
         this.coststick = coststick;
         this.inventorylevel = inventorylevel;
@@ -78,6 +87,9 @@ public class Item {
         this.strength = strength;
         this.brandid = brandid;
         this.sku = sku;
+        this.retailstick = retailstick;
+        this.retailbox = retailbox;
+        this.sticksperbox = sticksperbox;
 
     }
 
@@ -157,5 +169,27 @@ public class Item {
         this.sku = sku;
     }
 
+    public Double getRetailstick() {
+        return retailstick;
+    }
 
+    public void setRetailstick(Double retailstick) {
+        this.retailstick = retailstick;
+    }
+
+    public Double getRetailbox() {
+        return retailbox;
+    }
+
+    public void setRetailbox(Double retailbox) {
+        this.retailbox = retailbox;
+    }
+
+    public int getSticksperbox() {
+        return sticksperbox;
+    }
+
+    public void setSticksperbox(int sticksperbox) {
+        this.sticksperbox = sticksperbox;
+    }
 } // class Item
