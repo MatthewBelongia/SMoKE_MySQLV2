@@ -17,7 +17,13 @@ public interface TabItemDao extends CrudRepository<TabItem,Long>{
      *
      * @param tabid
      */
-    //TabItem findBytabid(Long tabid);
-
     List<TabItem> findAllByTabid(Long tabid);
+
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    TabItem findByid(Long id);
 }

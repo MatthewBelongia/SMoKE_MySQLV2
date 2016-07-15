@@ -89,6 +89,58 @@
             //return "Tab Item succesfully deleted!";
         }
 
+        /**
+         * /addquantity --> increase quantity to existing tabitem on passed id
+         */
+        @RequestMapping(value = "/addquantity", method = RequestMethod.GET)
+        @ResponseBody
+        public void addquantity(Long id, Long tabid, Long cigarid, Double retail, Long quantity,
+                                Long discount, Double finalamount, Timestamp timestamp,
+                                Long coalcount,String hookahbuilder,String salesemployeeid){
+            try{
+                TabItem existingTabItem = tabItemDao.findByid(id);
+                existingTabItem.setQuantity(existingTabItem.getQuantity() + 1);
+                existingTabItem.setFinalamount((existingTabItem.getRetail() * existingTabItem.getQuantity()));
+                tabItemDao.save(existingTabItem);
+                log.info("tabItem updated");
+            }
+            catch(Exception ex){
+                log.info(ex.toString());
+                log.info("error updating tabItem");
+            }
+        }
+
+        /**
+         * /removequantity --> remove quantity from existing tabitem on passed id
+         */
+        @RequestMapping(value = "/removequantity",method = RequestMethod.GET)
+        @ResponseBody
+        public void removequantity(Long id, Long tabid, Long cigarid, Double retail, Long quantity,
+                                   Long discount, Double finalamount, Timestamp timestamp,
+                                   Long coalcount,String hookahbuilder,String salesemployeeid){
+            try{
+                TabItem existingTabItem = tabItemDao.findByid(id);
+                if(existingTabItem.getQuantity() > 1) {
+                    existingTabItem.setQuantity(existingTabItem.getQuantity() - 1);
+                    existingTabItem.setFinalamount((existingTabItem.getRetail() * existingTabItem.getQuantity()));
+                }else{
+                    tabItemDao.delete(existingTabItem);
+                    log.info("tabitem deleted");
+                    return;
+                }
+                tabItemDao.save(existingTabItem);
+                log.info("tabItem quantity lowered");
+            }
+            catch(Exception ex){
+                log.info(ex.toString());
+                log.info("error removing quantity");
+            }
+        }
+
+        /**
+         * /setToBox
+         */
+
         // ------------------------
         // PRIVATE FIELDS
         // ------------------------

@@ -2,6 +2,7 @@ package io.matthewbelongia.models;
 
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
@@ -22,34 +23,34 @@ public class TabItem {
     private long id;
 
     //The tabItem's tabid
-    @NotNull
+
     private long tabid;
 
-    @NotNull
+
     private long cigarid;
 
-    @NotNull
+
     private Double retail;
 
-    @NotNull
+
     private long quantity;
 
-    @NotNull
+
     private long discount;
 
-    @NotNull
+
     private Double finalamount;
 
-    @NotNull
+
     private Timestamp timestamp;
 
-    @NotNull
+
     private long coalcount;
 
-    @NotNull
+
     private String hookahbuilder;
 
-    @NotNull
+
     private String salesemployeeid;
 
     // ------------------------
@@ -164,4 +165,5 @@ public class TabItem {
     public void setSalesemployeeid(String salesemployeeid) {
         this.salesemployeeid = salesemployeeid;
     }
+
 }
